@@ -1,2 +1,5 @@
 # revIVe
-revIVe Arduino
+revIVe Infusion Device Arduino Master Code
+
+Clamp
+Weight Sensor
