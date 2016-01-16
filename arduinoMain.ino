@@ -1,6 +1,6 @@
 void setup() {
   // put your setup code here, to run once:
-
+const int t = 1;
 }
 
 void loop() {
