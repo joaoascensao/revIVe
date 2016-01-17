@@ -24,7 +24,6 @@ float avRate
 
 // Loop
 void loop() {
-
   while (tictoc(1000) {
       int analogval = analogRead(A0); // Reading load cell voltage at A0 pin
   // Calculating weight in 2 ways (To see which one is more accurate) 
@@ -46,5 +45,7 @@ void loop() {
   //  time = millis();
   }
   avRate = sumRate / lenRate;
+  sumRate = 0;
+  lenRate = 0;
   }
 }
