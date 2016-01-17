@@ -16,6 +16,7 @@ float sumRate = 0;
 float lenRate = 0;
 float avRate1 = 0;
 float avRate2 = 0;
+float flowrate = 0;
 const int settime = 5000; // Time between readings in ms
 boolean set1 = true;
 
@@ -50,5 +51,6 @@ void loop() {
       flowrate = (avRate2 - avRate1) / settime / 1000;
       avRate1 = avRate2; // Sets avRate1 to avRate2 for next cycle of flow rate calculation
       avRate2 = 0; // Resets avRate2
+      Serial.Println(flowrate)
     }
   }
