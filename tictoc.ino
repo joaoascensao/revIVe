@@ -10,11 +10,11 @@ if (!b){
 
 boolean tElapse
 if ((millis() - tIni) < tMil) {
-  tElapse = false;
+  tElapse = true;
   b=true;
 }
 else {
-  tElapse = true;
+  tElapse = false;
   b=false;
 }
 
