@@ -4,7 +4,7 @@ b = false;
 boolean tictoc (float tMil) {
 float tIni
 
-if (!b){
+if (b == false){
   tIni = millis();
 }
 
