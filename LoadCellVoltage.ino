@@ -2,7 +2,7 @@
 
 // Constants
 // Example densities
-const int dens1 = 1.0046; // Saline density @ 22C g/mL
+const float dens1 = 1.0046; // Saline density @ 22C g/mL
 const int calib = 10000; // Predetermined calibration factor from curve (weight = voltage*calib)
 const int timeread = 5000; // Time between readings (ms) 
 
