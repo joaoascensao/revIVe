@@ -18,17 +18,15 @@ void setup() {
   Serial.begin(9600); // initialize serial communication at 9600 bits per second:
 }
 
-float sumRate
-float lenRate
+float sumRate = 0;
+float lenRate = 0;
 float avRate
-
-sumRate = 0;
-lenRate = 0;
 
 // Loop
 void loop() {
-  int analogval = analogRead(A0); // Reading load cell voltage at A0 pin
+
   while (tictoc(1000) {
+      int analogval = analogRead(A0); // Reading load cell voltage at A0 pin
   // Calculating weight in 2 ways (To see which one is more accurate) 
     // Method 1 using map for smooth linear calibration
        float load = map(analogval, analogvalA, analogvalB, loadA, loadB); // Mapping calibration between loadA -> loadB
@@ -49,5 +47,4 @@ void loop() {
   }
   avRate = sumRate / lenRate;
   }
-  
 }
