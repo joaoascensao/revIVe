@@ -13,11 +13,6 @@ int analogvalA = 0; // analog reading taken with load A on the load cell
 float loadB = 2; // Upper bound weight kg 
 int analogvalB = 10; // analog reading taken with load B on the load cell
 
-// Setup
-void setup() {
-  Serial.begin(9600); // initialize serial communication at 9600 bits per second:
-}
-
 float sumRate = 0;
 float lenRate = 0;
 float avRate
@@ -29,7 +24,7 @@ void loop() {
   // Calculating weight in 2 ways (To see which one is more accurate) 
     // Method 1 using map for smooth linear calibration
        float load = map(analogval, analogvalA, analogvalB, loadA, loadB); // Mapping calibration between loadA -> loadB
-       float rate1 = load / dens1; 
+       float rate1 = load / dens1;  // Mass -> Volume
        
        sumRate += rate1;
        ++ lenRate;
