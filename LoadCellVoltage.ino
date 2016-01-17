@@ -32,7 +32,7 @@ void loop() {
        float rate1 = load / dens1; 
        
        sumRate += rate1;
-       lenRate ++;
+       ++ lenRate;
        
     // Method 2, multiplying by predetermined calibration factor
       float voltage = analogval * (10.0 / 1023.0); // Assuming 0 - 10V output
