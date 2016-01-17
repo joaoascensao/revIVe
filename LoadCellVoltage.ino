@@ -11,7 +11,7 @@ int loadA = 0; // Lower bound weight kg
 int analogvalA = 0; // analog reading taken with load A on the load cell 
 
 float loadB = 2; // Upper bound weight kg 
-int analogvalB = 10V; // analog reading taken with load B on the load cell
+int analogvalB = 10; // analog reading taken with load B on the load cell
 
 // Setup
 void setup() {
