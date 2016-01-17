@@ -7,7 +7,7 @@ const int calib = 10000; // Predetermined calibration factor from curve (weight 
 const int timeread = 5000; // Time between readings (ms) 
 
 // Analog values for calibration
-float loadA = 0; // Lower bound weight kg 
+int loadA = 0; // Lower bound weight kg 
 int analogvalA = 0; // analog reading taken with load A on the load cell 
 
 float loadB = 2; // Upper bound weight kg 
