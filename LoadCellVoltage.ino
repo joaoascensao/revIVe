@@ -52,7 +52,7 @@ float loadCellFlowRate () {
       flowrate = (avRate2 - avRate1) / settime / 3600000; // Flowrate mL / hr
       avRate1 = avRate2; // Sets avRate1 to avRate2 for next cycle of flow rate calculation
       avRate2 = 0; // Resets avRate2
-      Serial.Println(flowrate)
+      Serial.Println(flowrate);
       delay(settime);
 }
 return flowrate;
