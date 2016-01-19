@@ -54,4 +54,5 @@ float loadCellFlowRate () {
       avRate2 = 0; // Resets avRate2
       Serial.Println(flowrate)
 }
+return avRate1;
 }
