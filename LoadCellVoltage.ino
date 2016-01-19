@@ -35,6 +35,7 @@ void loop() {
     // Method 2, multiplying by predetermined calibration factor
     float voltage = analogval * (10.0 / 1023.0); // Assuming 0 - 10V output
     float rate2 = voltage * calib / dens1;
+    }
   // Calculate on first run
     if (set1) { 
       avRate1 = sumRate / lenRate;
@@ -52,5 +53,4 @@ void loop() {
       avRate1 = avRate2; // Sets avRate1 to avRate2 for next cycle of flow rate calculation
       avRate2 = 0; // Resets avRate2
       Serial.Println(flowrate)
-    }
-  }
+}
