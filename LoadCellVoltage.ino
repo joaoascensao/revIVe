@@ -21,7 +21,7 @@ const int settime = 5000; // Time between readings in ms
 boolean set1 = true;
 
 // Loop
-void loop() {
+float loadCellFlowRate () {
   while (tictoc(1000) {
   int analogval = analogRead(A0); // Reading load cell voltage at A0 pin
     // Calculating weight in 2 ways (To see which one is more accurate)
@@ -54,4 +54,6 @@ void loop() {
       avRate2 = 0; // Resets avRate2
       Serial.Println(flowrate)
       delay(settime);
+}
+return avRate1;
 }
