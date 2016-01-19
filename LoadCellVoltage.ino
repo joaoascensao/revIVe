@@ -55,5 +55,5 @@ float loadCellFlowRate () {
       Serial.Println(flowrate)
       delay(settime);
 }
-return avRate1;
+return flowrate;
 }
