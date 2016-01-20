@@ -11,7 +11,7 @@ void loop() {
   
   // get load cell voltage
   float flowRate;
-  flowRate = loadCellFlowRate;
+  flowRate = loadCellFlowRate();
   // call PID
   // figure out how much to move the motor
 }
