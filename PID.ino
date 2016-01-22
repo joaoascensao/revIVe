@@ -42,6 +42,7 @@ public:
 		I = I + (error * kI) * deltaTime;
 		
 		//D
+		// Use better PID?
 		D = (lastSample - sample) * kD / deltaTime;
 		lastSample = sample;
 		
