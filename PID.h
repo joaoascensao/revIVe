@@ -58,7 +58,7 @@ public:
 		
 		totSteps = step;
 	}
-};
+}
 
 /*
 #define pSENSOR         A1
