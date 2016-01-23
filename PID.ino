@@ -9,8 +9,11 @@ public:
 	double sample;
 	double lastSample;
 	double kP, kI, kD;      
-	double P, I, D;
+	double P, D;
+	double I = 0;
 	double pid;
+	int step;
+	int totSteps = 0;
 	
 	double setPoint;
 	long lastProcess;
@@ -42,14 +45,18 @@ public:
 		I = I + (error * kI) * deltaTime;
 		
 		//D
-		// Use better PID?
+		// Use better D?
 		D = (lastSample - sample) * kD / deltaTime;
 		lastSample = sample;
 		
 		// Soma tudo
 		pid = P + I + D;
 		
-		return pid;
+		step = round(pid);
+
+		return (step - totSteps);
+		
+		totSteps = step;
 	}
 };
 
