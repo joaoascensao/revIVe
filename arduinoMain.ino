@@ -4,7 +4,7 @@ public:
   double error;
   double sample;
   double lastSample;
-  double kP, kI, kD;      
+  double kP, kI, kD;
   double P, D;
   double I = 0;
   double pid;
@@ -29,7 +29,7 @@ public:
   }
   
   double process(){
-    // Implementação P ID
+    //  PID Implementation
     error = setPoint - sample;
     float deltaTime = (millis() - lastProcess) / 1000.0;
     lastProcess = millis();
@@ -45,35 +45,45 @@ public:
     D = (lastSample - sample) * kD / deltaTime;
     lastSample = sample;
     
-    // Soma tudo
+    // Sum of total
     pid = P + I + D;
     
     step = round(pid);
-
-    return (step - totSteps);
+    // (step - totSteps)
+    return step;
     
     totSteps = step;
   }
 };
 
+float fakeFunction(int stepNo) {
+  return stepNo*10.0;
+}
+
 PID stepperPID(0.001,1,0);
+float flowRate = 0;
+int stepNo;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   
-  stepperPID.setSetPoint(538);
+  stepperPID.setSetPoint(435);
   // Initialize all pins
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly: 
   
   // get load cell voltage
-  float flowRate;
-  flowRate = loadCellFlowRate();
+  // float flowRate;
+  // flowRate = loadCellFlowRate();
   
   stepperPID.addNewSample(flowRate);
+  stepNo = stepperPID.process();
+  flowRate = fakeFunction(stepNo);
+  Serial.println(flowRate);
   // biStepper.step(stepperPID.process())
   
   // call PID
