@@ -46,7 +46,9 @@ public:
     lastSample = sample;
     
     // Soma tudo
-    pid = P + I + D;
+    if (abs(error)>8) {
+      pid = P + I + D;
+    }
     
     step = round(pid);
 
