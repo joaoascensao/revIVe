@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h> // Access Arduino's built in LCD library
+
 class PID{
 public:
   
