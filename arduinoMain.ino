@@ -73,7 +73,7 @@ char keys[rows][cols] = {
 };
 byte colPins[cols] = {7, 6, 1, 0}; //connect to the row pinouts of the keypad
 byte rowPins[rows] = {13, 10, 9, 8}; //connect to the column pinouts of the keypad
-Keypad keypad4x4 = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols );
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols );
 
 void setup() {
   // put your setup code here, to run once:
@@ -91,6 +91,12 @@ void loop() {
   flowRate = loadCellFlowRate();
   
   stepperPID.addNewSample(flowRate);
+  
+  char key = keypad.getKey();
+
+  if (key != NO_KEY){
+    Serial.println(key);
+  }
   // biStepper.step(stepperPID.process())
   
   // call PID
