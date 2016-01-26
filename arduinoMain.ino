@@ -1,4 +1,5 @@
 #include "LiquidCrystal.h" // Access Arduino's built in LCD library
+#include "Keypad.h" //Access keypad library
 
 class PID{
 public:
@@ -31,7 +32,7 @@ public:
   }
   
   double process(){
-    // Implementação P ID
+    // PID implementation
     error = setPoint - sample;
     float deltaTime = (millis() - lastProcess) / 1000.0;
     lastProcess = millis();
@@ -47,7 +48,7 @@ public:
     D = (lastSample - sample) * kD / deltaTime;
     lastSample = sample;
     
-    // Soma tudo
+    // Sum of everything
     if (abs(error)>8) {
       pid = P + I + D;
     }
