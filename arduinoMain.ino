@@ -1,67 +1,8 @@
 #include <LiquidCrystal.h> // Access Arduino's built in LCD library
 #include <Keypad.h> //Access keypad library (Download it from readme link)
+#include "PID.h"
 
-class PID{
-public:
-  
-  double error;
-  double sample;
-  double lastSample;
-  double kP, kI, kD;      
-  double P, D;
-  double I = 0;
-  double pid;
-  int steps;
-  int totSteps = 0;
-  
-  double setPoint;
-  long lastProcess;
-  
-  PID(double _kP, double _kI, double _kD){
-    kP = _kP;
-    kI = _kI;
-    kD = _kD;
-  }
-  
-  void addNewSample(double _sample){
-    sample = _sample;
-  }
-  
-  void setSetPoint(double _setPoint){
-    setPoint = _setPoint;
-  }
-  
-  double process(){
-    // PID implementation
-    error = setPoint - sample;
-    float deltaTime = (millis() - lastProcess) / 1000.0;
-    lastProcess = millis();
-    
-    //P
-    P = error * kP;
-    
-    //I
-    I = I + (error * kI) * deltaTime;
-    
-    //D
-    // Use better D?
-    D = (lastSample - sample) * kD / deltaTime;
-    lastSample = sample;
-    
-    // Sum of everything
-    if (abs(error)>8) {
-      pid = P + I + D;
-    }
-    
-    steps = round(pid);
-
-    return (steps - totSteps);
-    
-    totSteps = steps;
-  }
-};
-
-PID stepperPID(0.001,1,0);
+PID stepperPID = PID(0.001,1,0);
 
 const byte rows = 4; //four rows
 const byte cols = 4; //three columns
