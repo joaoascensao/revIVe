@@ -1,6 +1,5 @@
-#include <SPI.h>
-#include "LiquidCrystal.h" // Access Arduino's built in LCD library
-#include "Keypad.h" //Access keypad library
+#include <LiquidCrystal.h> // Access Arduino's built in LCD library
+#include <Keypad.h> //Access keypad library (Download it from readme link)
 
 class PID{
 public:
