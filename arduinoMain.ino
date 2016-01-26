@@ -1,3 +1,4 @@
+#include <SPI.h>
 #include "LiquidCrystal.h" // Access Arduino's built in LCD library
 #include "Keypad.h" //Access keypad library
 
@@ -69,9 +70,9 @@ char keys[rows][cols] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
   {'7','8','9','C'},
-  {'#','0','*','D'}
+  {'*','0','#','D'}
 };
-byte colPins[cols] = {7, 6, 1, 0}; //connect to the row pinouts of the keypad
+byte colPins[cols] = {7, 6, 14, 15}; //connect to the row pinouts of the keypad
 byte rowPins[rows] = {13, 10, 9, 8}; //connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols );
 
@@ -79,7 +80,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   
-  stepperPID.setSetPoint(538);
+  //stepperPID.setSetPoint(538);
   // Initialize all pins
 }
 
@@ -87,10 +88,10 @@ void loop() {
   // put your main code here, to run repeatedly: 
   
   // get load cell voltage
-  float flowRate;
-  flowRate = loadCellFlowRate();
+  //float flowRate;
+  //flowRate = loadCellFlowRate();
   
-  stepperPID.addNewSample(flowRate);
+  //stepperPID.addNewSample(flowRate);
   
   char key = keypad.getKey();
 
