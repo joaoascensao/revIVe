@@ -11,7 +11,7 @@ public:
   double P, D;
   double I = 0;
   double pid;
-  int step;
+  int steps;
   int totSteps = 0;
   
   double setPoint;
@@ -53,11 +53,11 @@ public:
       pid = P + I + D;
     }
     
-    step = round(pid);
+    steps = round(pid);
 
-    return (step - totSteps);
+    return (steps - totSteps);
     
-    totSteps = step;
+    totSteps = steps;
   }
 };
 
