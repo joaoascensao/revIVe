@@ -16,7 +16,7 @@ byte colPins[cols] = {7, 6, 14, 15}; //connect to the row pinouts of the keypad
 byte rowPins[rows] = {13, 10, 9, 8}; //connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols );
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(12, 13, 5, 4, 3, 2);
 
 void setup() {
   // put your setup code here, to run once:
