@@ -1,3 +1,5 @@
+#include <Stepper.h>
+
 #include <LiquidCrystal.h> // Access Arduino's built in LCD library
 #include <Keypad.h> //Access keypad library (Download it from readme link)
 #include "PID.h"
@@ -12,23 +14,36 @@ char keys[rows][cols] = {
   {'7','8','9','C'},
   {'*','0','#','D'}
 };
-byte colPins[cols] = {7, 6, 14, 15}; //connect to the row pinouts of the keypad
-byte rowPins[rows] = {13, 10, 9, 8}; //connect to the column pinouts of the keypad
+
+byte colPins[cols] = {26, 27, 28, 29}; //connect to the row pinouts of the keypad
+byte rowPins[rows] = {22, 23, 24, 25}; //connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, rows, cols );
 
-LiquidCrystal lcd(12, 13, 5, 4, 3, 2);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+int allUserInputs[3] = {0, 0, 0};
+Stepper biStepper(200, 32, 33, 31, 30);
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   lcd.begin(20, 4);
+  
   lcd.print("Welcome to revIVe   Infusion Device"); 
+  delay(5000);
+  
+  
+  //screen1(&allUserInputs[0]);
+  
   //stepperPID.setSetPoint(538);
   // Initialize all pins
 }
 
 void loop() {
   // put your main code here, to run repeatedly: 
+  Serial.println("b");
+  biStepper.step(1);
+  delay(1000);
   
   // get load cell voltage
   //float flowRate;
@@ -36,12 +51,6 @@ void loop() {
   
   //stepperPID.addNewSample(flowRate);
   
-  char key = keypad.getKey();
-  lcd.setCursor(0, 0);
-  if (key != NO_KEY){
-    Serial.println(key);
-    lcd.print(key);
-  }
   // biStepper.step(stepperPID.process())
   
   // call PID
