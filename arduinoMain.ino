@@ -22,7 +22,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   lcd.begin(20, 4);
-  
+  lcd.print("Welcome to revIVe   Infusion Device"); 
   //stepperPID.setSetPoint(538);
   // Initialize all pins
 }
