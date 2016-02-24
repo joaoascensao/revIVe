@@ -1,5 +1,4 @@
 #include <Stepper.h>
-
 #include <LiquidCrystal.h> // Access Arduino's built in LCD library
 #include <Keypad.h> //Access keypad library (Download it from readme link)
 #include "PID.h"
@@ -45,9 +44,9 @@ void loop() {
   biStepper.step(1);
   delay(1000);
   
-  // get load cell voltage
-  //float flowRate;
-  //flowRate = loadCellFlowRate();
+  // get flowrate
+  float flowRate;
+  flowRate = loadCellFlowRate();
   
   //stepperPID.addNewSample(flowRate);
   
