@@ -12,3 +12,4 @@ int arrayToNum(int *userVal) {
   return 1000*userVal[3] + 100*userVal[2] + 10*userVal[1] + userVal[0];
   
 }
+
